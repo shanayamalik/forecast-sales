@@ -17,7 +17,6 @@ tf.random.set_seed(42)
 random.seed(42)
 
 def inverse_scale_single_array(scaler,single_array):
-    # single_array=[0.12389381 ,0.0619469  ,0.15044248, 0.15929204]
     # scaler = joblib.load('data_scaler.pkl')
     reshaped_array = np.array(single_array).reshape(-1, 1)
     zeros = np.zeros((reshaped_array.shape[0], 2))
