@@ -88,7 +88,6 @@ def training1(data,sequence_length):
     df.to_csv('training_history.csv', index=False)
     return model_product1
 
-import pandas as pd
 data1="product_1_80_a1_copy.csv"
 data2="a/vending_sales_only_product_2_80.csv"
 df1=pd.read_csv("a/product_1_80_a1_copy.csv")
