@@ -14,8 +14,6 @@ import click
 np.random.seed(42)
 tf.random.set_seed(42)
 random.seed(42)
-random.seed(42)
-import warnings
 sequence_length=1
 def preprocess_data(data):
     df = data
@@ -44,7 +42,6 @@ def predict_sales(model_loc,data, input_date="08-30-2023"):#dummy date
         data_scaler = joblib.load('data_scaler.pkl')
         # sequence=data_scaler.transform(sequence)
         prediction = model.predict(sequence.reshape(1, sequence_length, 3),verbose=0)
-        
         #Move to the next day and generate its 'Holidays' and 'days' features.
         last_date += pd.Timedelta(days=1)
         new_data = {
@@ -53,7 +50,6 @@ def predict_sales(model_loc,data, input_date="08-30-2023"):#dummy date
             'Holidays': 1 if last_date in holidays.US() else 0,
             'days': last_date.weekday()
         }
-        #new_data=data_scaler.fit_transform([[prediction[0][0],1 if last_date in holidays.US(years=[last_date.year]) else 0,last_date.weekday()]])
         # 3. Append this data to the dataframe.
         data_scaler = joblib.load('data_scaler.pkl')
 
@@ -70,21 +66,9 @@ def main(input_date):
     pd.set_option('display.max_columns', None)  # Show all columns
     pd.set_option('display.width', None)
     pd.set_option('display.max_colwidth', None)
-    # print((a.iloc[-(last_date-input_date).days:]).iloc[:,1:2].reset_index(drop=True))
     print(a.iloc[-(last_date-input_date).days-1 :])
     print(b.iloc[-(last_date-input_date).days-1 :])
 
 if __name__ == '__main__':
     main()
-    
-    # data1="a/product_1_80_a1_copy.csv"
-    # data2="a/vending_sales_only_product_2_80.csv"
-    # a, last_date,input_date=predict_sales("a/model_product1.keras",data1)
-    # b,_,_=predict_sales("a/model_product2.keras",data2)
-    # pd.set_option('display.max_rows', None)  # Show all rows
-    # pd.set_option('display.max_columns', None)  # Show all columns
-    # pd.set_option('display.width', None)
-    # pd.set_option('display.max_colwidth', None)
-    # # print((a.iloc[-(last_date-input_date).days:]).iloc[:,1:2].reset_index(drop=True))
-    # print(a.iloc[-(last_date-input_date).days-1 :])
-    # print(b.iloc[-(last_date-input_date).days-1 :])
+
