@@ -89,7 +89,7 @@ def predict_sales(model_loc,data, input_date="08-30-2023"):#dummy date
     return df ,input_date, l
 @click.command()
 @click.option('--input_date', '-e', required=True, type=str, help='End date for prediction in format YYYY-MM-DD')
-def main(input_date):
+def main(input_date="09-01-2023"):
     """
     Command-Line Interface(CLI) entry point. Predicts sales for two products up to a given date and prints the predictions.
     
@@ -98,13 +98,14 @@ def main(input_date):
     """
     
     # Define paths for data files
-    data1="a/product_1_80_a1_copy.csv"
-    data2="a/vending_sales_only_product_2_80.csv"
+    data1="AA_Batteries_60Days_Data.csv"
+    data2="AAA_Batteries_60Days_Data.csv"
     
     # Predict sales for the first product up to the given date
-    a, last_date,input_date=predict_sales("a/model_product1.keras",data1,input_date)
+    b,_,_=predict_sales("model_product2.keras",data2,input_date)
+    a, last_date,input_date_1=predict_sales("model_product1.keras",data1,input_date)
     # Predict sales for the second product up to the given date
-    b,_,_=predict_sales("a/model_product2.keras",data2,input_date)
+    
     
     # Configure pandas to display all rows and columns
     pd.set_option('display.max_rows', None)  
@@ -113,8 +114,8 @@ def main(input_date):
     pd.set_option('display.max_colwidth', None)
     
     # Print the predictions for the two products
-    print(a.iloc[-(last_date-input_date).days-1 :])
-    print(b.iloc[-(last_date-input_date).days-1 :])
+    print(a.iloc[-(last_date-input_date_1).days-1 :])
+    print(b.iloc[-(last_date-input_date_1).days-1 :])
     
 # If the script is executed as the main module, run the main() function
 if __name__ == '__main__':
