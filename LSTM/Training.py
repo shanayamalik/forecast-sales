@@ -114,50 +114,18 @@ def training1(data,sequence_length):
     return model_product1
 
 
-def training2(data,sequence_length):
-    """
-    Processes the data and trains an LSTM model using MAE as the loss function.
-    
-    Parameters:
-    - data: The input data DataFrame.
-    - sequence_length: The length of sequences to be generated.
-    
-    Returns:
-    - The trained LSTM model.
-    """
-
-    x_train, y_train, x_test, y_test=data_processing(data, sequence_length)
-
-    EarlyStopping_1=tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=20)
-
-    model_product1=Sequential([
-        LSTM(50,activation='relu',return_sequences=True, input_shape=(x_train.shape[1],x_train.shape[2])),
-        LSTM(128,activation='relu'),
-        Dense(1)
-    ])
-
-    model_product1.compile(optimizer='adam',loss='mse')
-
-    history=model_product1.fit(x_train,y_train,epochs=100,validation_data=(x_test,y_test),callbacks=[EarlyStopping_1],verbose=0)
-    # Convert the history to a DataFrame
-    df = pd.DataFrame(history.history)
-
-    # Save the DataFrame to CSV
-    df.to_csv('training_history.csv', index=False)
-    return model_product1
-
 sequence_length=1
 # Define data file paths
-data1="product_1_80_a1_copy.csv"
-data2="a/vending_sales_only_product_2_80.csv"
+data1="AA_Batteries_60Days_Data.csv"
+data2="AAA_Batteries_60Days_Data.csv"
 # Read data from CSV files
 df1=pd.read_csv(data1)
 df2=pd.read_csv(data2)
 # Train the LSTM model for the first product
 model_product1 =training1(df1,sequence_length)
 # Save the trained model for the first product
-model_product1.save('a/model_product1.keras')
+model_product1.save('model_product1.keras')
 # Train the LSTM model for the second product
-model_product2=training2(df2,sequence_length)
+model_product2=training1(df2,sequence_length)
 # Save the trained model for the second product
-model_product2.save('a/model_product2.keras')
+model_product2.save('model_product2.keras')
