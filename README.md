@@ -8,7 +8,7 @@ This repository provides solutions for forecasting sales of products in a vendin
     
     ├── adaboost
     |   ├── models
-    │   │   ├── Forecasting.keras
+    │   │   ├── Forecasting.pkl
     │   ├── dataset
     │   │   ├── product1.csv
     │   │   └── product2.csv
