@@ -35,15 +35,36 @@ Additional data attributes like holidays and weekends have been extrapolated bas
 
 ## ⚙️ Usage
 
-Both the AdaBoost and LSTM directories share a similar structure and usage pattern.
+Both the AdaBoost and LSTM models have their respective directories, each with a similar structure and usage pattern.
 
 ### Training
 
-To train a model, navigate to either the `AdaBoost` or `LSTM` directory and run:
+1. **Preparation**: 
+   - Before starting the training process, ensure that you have the necessary data in the `dataset` directory of either the `AdaBoost` or `LSTM` models. The data should be in the form of `.csv` files.
 
-```bash
-python training.py 
-python inference.py --date <date till which to forecast sales>
-```
+2. **Execution**: 
+   - To initiate the training process for your chosen model:
+     1. Navigate to the desired directory (`AdaBoost` or `LSTM`).
+     2. Run the training script:
+        ```bash
+        python training.py
+        ```
+     - This script will process the data, train the model, and save the trained model in the `models` directory.
+
+### Forecasting
+
+After training, you can forecast future sales using the trained model.
+
+1. **Preparation**: 
+   - Ensure that the model has been trained and saved in the `models` directory.
+
+2. **Execution**:
+   1. Navigate to the directory of the model you want to use for forecasting (`AdaBoost` or `LSTM`).
+   2. Run the inference script with the desired date:
+      ```bash
+      python inference.py --date YYYY-MM-DD
+      ```
+   - Replace `YYYY-MM-DD` with the date up to which you wish to forecast sales. The script will use the trained model to predict sales up to the specified date and display the results.
+
 ## License
 This project is licensed under the terms mentioned in the LICENSE file.
