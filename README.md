@@ -5,13 +5,18 @@ This repository provides solutions for forecasting sales of products in a vendin
 ## Directory Structure
 
     .
+    
     ├── adaboost
+    |   ├── models
+    │   │   ├── Forecasting.keras
     │   ├── dataset
     │   │   ├── product1.csv
     │   │   └── product2.csv
     │   ├── training.py
     │   └── inference.py
     ├── lstm
+    |   ├── models
+    │   │   ├── Forecasting.keras
     │   ├── dataset
     │   │   ├── product1.csv
     │   │   └── product2.csv
