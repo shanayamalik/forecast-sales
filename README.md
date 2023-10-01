@@ -37,9 +37,15 @@ Sales forecasting is crucial for businesses to make informed decisions. This rep
 ## AdaBoost Model
 
 **Training**
-1. Navigate to the AdaBoost directory: cd AdaBoost
-2. Install the required packages: pip install -r requirements.txt
-3. Run the training script: python Training.py
+1. Navigate to the AdaBoost directory:
+      ```bash
+      cd AdaBoost
+3. Install the required packages:
+     ```bash
+   pip install -r requirements.txt
+6. Run the training script:
+      ```bash
+      python Training.py
    
 **Inference**
 1. Ensure you are in the AdaBoost directory.
