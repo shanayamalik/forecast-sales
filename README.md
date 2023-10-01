@@ -49,18 +49,28 @@ Sales forecasting is crucial for businesses to make informed decisions. This rep
    
 **Inference**
 1. Ensure you are in the AdaBoost directory.
-2. Run the inference script: python Inference.py
+2. Run the inference script:
+      ```bash
+      python Inference.py
 
 ## LSTM Model
 
 **Training**
-1. Navigate to the LSTM directory: cd ../LSTM
-2. Install the required packages: pip install -r requirements.txt
-3. Run the training script: python Training.py
+1. Navigate to the LSTM directory:
+      ```bash
+      cd ../LSTM
+3. Install the required packages:
+      ```bash
+      pip install -r requirements.txt
+5. Run the training script:
+      ```bash
+      python Training.py
    
 **Inference**
 1. Ensure you are in the LSTM directory.
-2. Run the inference script: python Inference.py
+2. Run the inference script:
+      ```bash
+      python Inference.py
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
