@@ -1,70 +1,63 @@
-# Vending Machine Sales Forecasting
+# Sales Forecast Models
 
-This repository provides solutions for forecasting sales of products in a vending machine using two different approaches: AdaBoost and LSTM.
+The `sales-forecast` repository contains machine learning models designed to predict sales based on historical data. The primary models used in this repository are AdaBoost and LSTM.
 
-## Directory Structure
+## Table of Contents
 
-    .
-    
-    ├── adaboost
-    |   ├── models
-    │   │   ├── Forecasting.pkl
-    │   ├── dataset
-    │   │   ├── product1.csv
-    │   │   └── product2.csv
-    │   ├── training.py
-    │   └── inference.py
-    ├── lstm
-    |   ├── models
-    │   │   ├── Forecasting.keras
-    │   ├── dataset
-    │   │   ├── product1.csv
-    │   │   └── product2.csv
-    │   ├── training.py
-    │   └── inference.py
-    └── LICENSE
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [AdaBoost Model](#adaboost-model)
+  - [Training](#training)
+  - [Inference](#inference)
+- [LSTM Model](#lstm-model)
+  - [Training](#training-1)
+  - [Inference](#inference-1)
+- [Support](#support)
 
+## Overview
 
-## 📄 Dataset
+Sales forecasting is crucial for businesses to make informed decisions. This repository provides two distinct models to tackle the problem:
 
-Each product dataset spans 60 days and features the following columns:
-- **Date**: The date of sales.
-- **Sales**: The number of sales on that date.
+1. **AdaBoost**: A boosting algorithm that fits a sequence of weak learners on different weighted training data.
+2. **LSTM (Long Short-Term Memory)**: A type of recurrent neural network (RNN) that can remember long-term dependencies.
 
-Additional data attributes like holidays and weekends have been extrapolated based on the date.
+## Prerequisites
 
-## ⚙️ Usage
+1. Ensure you have Python installed on your machine. If not, download and install it from [Python's official website](https://www.python.org/downloads/).
+2. Git, for cloning the repository.
 
-Both the AdaBoost and LSTM models have their respective directories, each with a similar structure and usage pattern.
+## Setup
 
-### Training
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/shanayamalik/sales-forecast.git
+   cd sales-forecast
 
-1. **Preparation**: 
-   - Before starting the training process, ensure that you have the necessary data in the `dataset` directory of either the `AdaBoost` or `LSTM` models. The data should be in the form of `.csv` files.
+## AdaBoost Model
 
-2. **Execution**: 
-   - To initiate the training process for your chosen model:
-     1. Navigate to the desired directory (`AdaBoost` or `LSTM`).
-     2. Run the training script:
-        ```bash
-        python training.py
-        ```
-     - This script will process the data, train the model, and save the trained model in the `models` directory.
+**Training**
+1. Navigate to the AdaBoost directory: cd AdaBoost
+2. Install the required packages: pip install -r requirements.txt
+3. Run the training script: python Training.py
+   
+**Inference**
+1. Ensure you are in the AdaBoost directory.
+2. Run the inference script: python Inference.py
 
-### Forecasting
+## LSTM Model
 
-After training, you can forecast future sales using the trained model.
-
-1. **Preparation**: 
-   - Ensure that the model has been trained and saved in the `models` directory.
-
-2. **Execution**:
-   1. Navigate to the directory of the model you want to use for forecasting (`AdaBoost` or `LSTM`).
-   2. Run the inference script with the desired date:
-      ```bash
-      python inference.py --date YYYY-MM-DD
-      ```
-   - Replace `YYYY-MM-DD` with the date up to which you wish to forecast sales. The script will use the trained model to predict sales up to the specified date and display the results.
+**Training**
+1. Navigate to the LSTM directory: cd ../LSTM
+2. Install the required packages: pip install -r requirements.txt
+3. Run the training script: python Training.py
+   
+**Inference**
+1. Ensure you are in the LSTM directory.
+2. Run the inference script: python Inference.py
 
 ## License
-This project is licensed under the terms mentioned in the LICENSE file.
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Support
+For further details or any issues, refer to the repository's README or open an issue on GitHub.
