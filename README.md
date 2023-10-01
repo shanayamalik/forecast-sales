@@ -29,7 +29,7 @@ Sales forecasting is crucial for businesses to make informed decisions. This rep
 
 ## Setup
 
-1. Clone the repository:
+1. Clone the repository
    ```bash
    git clone https://github.com/shanayamalik/sales-forecast.git
    cd sales-forecast
@@ -37,43 +37,43 @@ Sales forecasting is crucial for businesses to make informed decisions. This rep
 ## AdaBoost Model
 
 **Training**
-1. Navigate to the AdaBoost directory:
+1. Navigate to the AdaBoost directory
       ```bash
       cd AdaBoost
-3. Install the required packages:
+3. Install the required packages
      ```bash
    pip install -r requirements.txt
-6. Run the training script:
+6. Run the training script
       ```bash
       python Training.py
    
 **Inference**
 1. Ensure you are in the AdaBoost directory.
-2. Run the inference script:
+2. Run the inference script
       ```bash
       python Inference.py
 
 ## LSTM Model
 
 **Training**
-1. Navigate to the LSTM directory:
+1. Navigate to the LSTM directory
       ```bash
       cd ../LSTM
-3. Install the required packages:
+3. Install the required packages
       ```bash
       pip install -r requirements.txt
-5. Run the training script:
+5. Run the training script
       ```bash
       python Training.py
    
 **Inference**
 1. Ensure you are in the LSTM directory.
-2. Run the inference script:
+2. Run the inference script
       ```bash
       python Inference.py
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ## Support
 For further details or any issues, refer to the repository's README or open an issue on GitHub.
